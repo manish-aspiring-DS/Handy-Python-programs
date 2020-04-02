@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr  2 02:49:25 2020
+
+@author: Manish Chauhan
+"""
+
+import smtplib   
+# creates SMTP session 
+s = smtplib.SMTP('smtp.gmail.com:587') 
+
+s.ehlo()  
+# start TLS for security 
+s.starttls() 
+  
+# Authentication 
+s.login("manishchauhan1621995@gmail.com","YOUR PASSWORD") 
+subject= 'TEST SUBJECT'
+msg='Be a game changer' 
+# message to be sent 
+message = "Subject: {}\n\n{}".format(subject,msg)
+  
+# sending the mail 
+s.sendmail("manishchauhan1621995@gmail.com","freakymac.c95@gmail.com", message) 
+  
+# terminating the session 
+s.quit() 
